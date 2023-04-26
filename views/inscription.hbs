@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Inscription</title>
+</head>
+
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "FreeMono", monospace;
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgb(116, 102, 236) 0%, rgb(29, 60, 210) 67%);
+}
+
+h2{
+    align-items: center;
+    justify-content: center; 
+    flex-direction: column;
+    padding: 10px 30px;
+    position: absolute;
+    top: 180px;
+    color: aliceblue;
+    font-size:35px;
+    font-weight: 100;
+}
+
+#wrapper {
+    display: table-cell;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20px;
+    padding: 40px;
+    width: 60%;
+    max-width: 500px;
+  }
+
+  input{
+    border-radius: 5px;
+    padding: 10px 30px;
+    margin: 6px;
+    
+  }
+
+  #button{
+    background-color: #227aff;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    padding: 10px 30px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 15px;
+  }
+  #button:hover {
+    transform: translateY(-2px);
+    background-color: #39a6ff;
+  }
+  #button:active {
+    transform: translateY(2px);
+    background-color: #2922ff;
+  }
+  .erreur{
+    color: red;
+  }
+</style>
+<body>
+    <h2>Inscription</h2>
+    <div id="wrapper">
+    <form action="/register" method="post">
+
+    <input type="email" name="mail" placeholder="Entrez votre adresse mail...">
+    <input type="password" name="mdp" minlength="8" placeholder="Entrez votre mot de passe...">
+    
+    <input id="button" type="submit">
+    {{#if erreur}}
+    <div class="erreur">{{erreur}}</div>
+    {{/if}}
+    </form>
+    <a href="/login">Vous avez déjà un compte? Connectez-vous!</a>
+    </div>
+</body>
+</html>
